@@ -1,7 +1,4 @@
 import { Router, Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
-import { User } from '../models/user';
-import bcrypt from 'bcrypt';
 import { seedUsers } from '../seeds/user-seeds';
 
 const router = Router();
