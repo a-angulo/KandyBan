@@ -20,8 +20,7 @@ const Navbar = () => {
   className="text-2xl font-semibold hover:underline"
   style={{ color: '#e16262' }}
 >
-      Kandyban
-      </Link>
+           </Link>
       <ul className="flex gap-4">
         {!loginCheck ? (
           <li>
