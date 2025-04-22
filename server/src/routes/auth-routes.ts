@@ -10,7 +10,7 @@ export const login = async (req: Request, res: Response) => {
 router.post('/login', login);
 
 // ✅ TEMP: Route to seed multiple test users
-router.get('/seed-multiple', async (_req, res) => {
+router.get('/seed-multiple', async (_req: Request, res: Response) => {
   try {
     await seedUsers();
     console.log('🌱 Users seeded');
