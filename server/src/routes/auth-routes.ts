@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { User } from '../models/user.js';
-import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import { User } from '../models/user.js'; // 👈 must include `.js` for runtime!
 
 const router = Router();
 
@@ -41,16 +41,17 @@ export const login = async (req: Request, res: Response) => {
 
 router.post('/login', login);
 
-// 🌱 TEMP: Seed users route (no external import)
+// 🌱 TEMP: Seed test users with manually hashed password
 router.get('/seed-multiple', async (_req: Request, res: Response) => {
   try {
+    const hashedPassword = await bcrypt.hash('password', 10);
+
     await User.bulkCreate(
       [
-        { username: 'JollyGuru', password: 'password' },
-        { username: 'SunnyScribe', password: 'password' },
-        { username: 'RadiantComet', password: 'password' },
-      ],
-      { individualHooks: true }
+        { username: 'JollyGuru', password: hashedPassword },
+        { username: 'SunnyScribe', password: hashedPassword },
+        { username: 'RadiantComet', password: hashedPassword }
+      ]
     );
 
     console.log('🌱 Users seeded');
