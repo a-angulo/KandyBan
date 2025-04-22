@@ -15,7 +15,11 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex justify-between items-center px-8 py-4 bg-white shadow fixed top-0 z-50">
-      <Link to="/" className="text-lg font-semibold text-purple-500 hover:underline">
+      <Link
+  to="/"
+  className="text-2xl font-semibold hover:underline"
+  style={{ color: '#e16262' }}
+>
       Kandyban
       </Link>
       <ul className="flex gap-4">
