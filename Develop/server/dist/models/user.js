@@ -1,0 +1,45 @@
+import { DataTypes, Model } from 'sequelize';
+import bcrypt from 'bcrypt';
+export class User extends Model {
+    // Hash the password before saving the user
+    async setPassword(password) {
+        const saltRounds = 10;
+        this.password = await bcrypt.hash(password, saltRounds);
+    }
+    // Compare plain text password with stored hash
+    async validatePassword(password) {
+        return bcrypt.compare(password, this.password);
+    }
+}
+export function UserFactory(sequelize) {
+    User.init({
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+    }, {
+        tableName: 'users',
+        sequelize,
+        hooks: {
+            beforeCreate: async (user) => {
+                await user.setPassword(user.password);
+            },
+            beforeUpdate: async (user) => {
+                if (user.changed('password')) {
+                    await user.setPassword(user.password);
+                }
+            },
+        },
+    });
+    return User;
+}

@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-primary: #b864c4;
+  --color-light-bg: #f9f9f9;
+  --color-dark: #1a1a1a;
+  --color-hover: #535bf2;
+
+  /* Kanban Lane Colors (mapped) */
+  --color-todo: #cbf078;       /* light green */
+  --color-inprogress: #f1b963; /* soft orange */
+  --color-done: #e46161;       /* strong red */
+
+  /* Additional Palette Options */
+  --color-first: #cbf078;
+  --color-second: #f8f398;
+  --color-third: #f1b963;
+  --color-fourth: #e46161;
+
+  font-family: 'Inter Tight', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: var(--color-text);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::placeholder {
+  text-align: right;
+}
+
+a {
+  font-weight: 500;
+  color: #000;
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color-hover);
+}
+
+body {
+  background: #ECF0F1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Button Base Styles */
+.btn,
+button,
+.editBtn,
+.deleteBtn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button {
+  background-color: var(--color-dark);
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.editBtn,
+.deleteBtn {
+  background-color: var(--color-light-bg);
+  color: black;
+}
+.deleteBtn:hover {
+  color: var(--color-hover);
+}
+
+main {
+  color: black;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+tr {
+  border-radius: 10px;
+  background-color: #000;
+  color: white;
+}
+tbody tr:nth-child(odd) {
+  background-color: #333;
+}
+
+/* Navbar Content */
+.nav {
+  display: flex;
+  padding: 1em 2em;
+}
+
+.nav ul {
+  display: flex;
+  margin-left: auto;
+  flex-direction: row;
+}
+
+.nav-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  font-weight: 900;
+}
+.nav-title a {
+  color: var(--color-primary);
+}
+
+.nav-item {
+  display: block;
+  margin-left: auto;
+  list-style: none;
+}
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+}
+.active {
+  font-weight: 700;
+}
+
+.table {
+  width: 80vw;
+  table-layout: fixed;
+}
+
+.board {
+  width: 100%;
+}
+.board-display {
+  display: flex;
+}
+
+.swim-lane {
+  text-align: center;
+  font-weight: 500;
+  width: 33%;
+  min-height: 90vh; 
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 5px;
+  padding: 5px;
+}
+
+.todo {
+  background-color: var(--color-todo); /* mapped to light green */
+}
+.inprogress {
+  background-color: var(--color-inprogress); /* mapped to soft orange */
+}
+.done {
+  background-color: var(--color-done); /* mapped to strong red */
+}
+
+.ticket-card {
+  text-align: left;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 0.1em solid black;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ticket-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.container {
+  width: 100%;
+}
+
+#create-ticket-link {
+  display: block;
+  margin-left: auto;
+}
+
+/* Form Styling */
+.form {
+  max-width: 600px;
+  min-height: 50%;
+  background-color: var(--color-second); /* light yellow */
+  margin: auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  gap: 1em;
+}
+
+.form > h1 {
+  color: var(--color-fourth); /* coral red */
+  margin-bottom: 1em;
+  font-size: 2em;
+}
+
+.form > label {
+  color: black;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.form > input,
+.form textarea {
+  width: 100%;
+  padding: 0.75em;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form > input:focus,
+.form textarea:focus {
+  border-color: var(--color-fourth);
+  box-shadow: 0 0 0 3px rgba(228, 97, 97, 0.3); /* fourth color glow */
+  outline: none;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form button {
+  background-color: var(--color-third); /* mellow orange */
+  color: #000;
+  border: none;
+  padding: 0.75em 2em;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.form button:hover {
+  background-color: var(--color-fourth); /* coral red on hover */
+  color: white;
+}
+
+.login-notice {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Utility Color Classes (for tags, highlights, etc.) */
+.first-color {
+  background: var(--color-first);
+}
+.second-color {
+  background: var(--color-second);
+}
+.third-color {
+  background: var(--color-third);
+}
+.fourth-color {
+  background: var(--color-fourth);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  #root {
+    width: 100%;
+  }
+  .nav {
+    flex-direction: column;
+    padding: 0.5em 1em;
+  }
+  .nav ul {
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .nav-item {
+    margin-left: 0;
+    margin-bottom: 1em;
+  }
+  .board-display {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+  .swim-lane {
+    width: 100%;
+    min-height: auto; 
+    margin-bottom: 10px;
+  }
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: var(--color-light-bg);
+  }
+}
