@@ -1,12 +1,16 @@
 # 🎯 Kandyban (Kanban Board – Module 14)
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![React](https://img.shields.io/badge/Frontend-React-blue.svg)](https://reactjs.org/)
-[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue.svg)](https://www.postgresql.org/)
-[![JWT](https://img.shields.io/badge/Auth-JWT-orange.svg)](https://jwt.io/)
-[![Render](https://img.shields.io/badge/Deployed_on-Render-brightgreen.svg)](https://render.com)
+-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+-[![React](https://img.shields.io/badge/Frontend-React-blue.svg)](https://reactjs.org/)
+-[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue.svg)](https://www.postgresql.org/)
+-[![JWT](https://img.shields.io/badge/Auth-JWT-orange.svg)](https://jwt.io/)
+-[![Render](https://img.shields.io/badge/Deployed_on-Render-brightgreen.svg)](https://render.com)
 
 ---
+### Live Demo
+
+👉 [Click here to view the live application](https://kandyban.onrender.com)
+--
 
 ## 📚 Table of Contents
 
@@ -21,7 +25,7 @@
 
 ## 📝 Description
 
-**Kandyban** is a full-stack PERN (PostgreSQL, Express, React, Node.js) application that serves as a visual project management Kanban board. It leverages **JWT authentication** to securely encode user credentials and manage sessions.
+**Kandyban** is a secure, full-stack Kanban board built with React, Node.js, Express, and PostgreSQL. This app introduces JWT-based authentication to protect access to tasks and allow session management, role-based access, and more. It supports agile development teams who need a reliable, secure, and user-friendly task management solution.
 
 Once authenticated, users are presented with a dashboard where they can:
 
@@ -100,7 +104,6 @@ Once authenticated, users can:
 - Delete tasks
 - Move tasks between board columns
 
-You can also try the [deployed Render version](https://your-render-url.com) (replace with real link).
 
 ---
 
