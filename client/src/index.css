@@ -1,27 +1,27 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --color-text: rgba(33, 53, 71, 1);
+  --color-text: rgba(255, 255, 255, 0.87);
   --color-primary: #b864c4;
   --color-light-bg: #f9f9f9;
   --color-dark: #1a1a1a;
   --color-hover: #535bf2;
 
-  /* Kanban Lane Colors (semantic) */
+  /* Kanban Lane Colors (mapped) */
   --color-todo: #cbf078;       /* light green */
   --color-inprogress: #f1b963; /* soft orange */
   --color-done: #e46161;       /* strong red */
 
-  /* Brand Palette */
-  --brand-primary: #cbf078;
-  --brand-secondary: #f8f398;
-  --brand-accent: #f1b963;
-  --brand-error: #e46161;
+  /* Additional Palette Options */
+  --color-first: #cbf078;
+  --color-second: #f8f398;
+  --color-third: #f1b963;
+  --color-fourth: #e46161;
 
   font-family: 'Inter Tight', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  color-scheme: light dark;
   color: var(--color-text);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -58,6 +58,7 @@ h1 {
   line-height: 1.1;
 }
 
+/* Button Base Styles */
 .btn,
 button,
 .editBtn,
@@ -109,16 +110,18 @@ tbody tr:nth-child(odd) {
   background-color: #333;
 }
 
-/* Navbar */
+/* Navbar Content */
 .nav {
   display: flex;
   padding: 1em 2em;
 }
+
 .nav ul {
   display: flex;
   margin-left: auto;
   flex-direction: row;
 }
+
 .nav-title {
   display: flex;
   align-items: center;
@@ -129,6 +132,7 @@ tbody tr:nth-child(odd) {
 .nav-title a {
   color: var(--color-primary);
 }
+
 .nav-item {
   display: block;
   margin-left: auto;
@@ -158,19 +162,20 @@ tbody tr:nth-child(odd) {
   text-align: center;
   font-weight: 500;
   width: 33%;
-  min-height: 90vh;
+  min-height: 90vh; 
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin: 5px;
   padding: 5px;
 }
+
 .todo {
-  background-color: var(--color-todo);
+  background-color: var(--color-todo); /* mapped to light green */
 }
 .inprogress {
-  background-color: var(--color-inprogress);
+  background-color: var(--color-inprogress); /* mapped to soft orange */
 }
 .done {
-  background-color: var(--color-done);
+  background-color: var(--color-done); /* mapped to strong red */
 }
 
 .ticket-card {
@@ -201,7 +206,7 @@ tbody tr:nth-child(odd) {
 .form {
   max-width: 600px;
   min-height: 50%;
-  background-color: var(--brand-secondary);
+  background-color: var(--color-second); /* light yellow */
   margin: auto;
   padding: 2em;
   display: flex;
@@ -212,16 +217,19 @@ tbody tr:nth-child(odd) {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   gap: 1em;
 }
+
 .form > h1 {
-  color: var(--brand-error);
+  color: var(--color-fourth); /* coral red */
   margin-bottom: 1em;
   font-size: 2em;
 }
+
 .form > label {
   color: black;
   font-weight: 600;
   margin-bottom: 0.5em;
 }
+
 .form > input,
 .form textarea {
   width: 100%;
@@ -232,18 +240,21 @@ tbody tr:nth-child(odd) {
   font-family: inherit;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
+
 .form > input:focus,
 .form textarea:focus {
-  border-color: var(--brand-error);
-  box-shadow: 0 0 0 3px rgba(228, 97, 97, 0.3);
+  border-color: var(--color-fourth);
+  box-shadow: 0 0 0 3px rgba(228, 97, 97, 0.3); /* fourth color glow */
   outline: none;
 }
+
 .form textarea {
   resize: vertical;
   min-height: 100px;
 }
+
 .form button {
-  background-color: var(--brand-accent);
+  background-color: var(--color-third); /* mellow orange */
   color: #000;
   border: none;
   padding: 0.75em 2em;
@@ -251,8 +262,9 @@ tbody tr:nth-child(odd) {
   border-radius: 8px;
   transition: background-color 0.3s;
 }
+
 .form button:hover {
-  background-color: var(--brand-error);
+  background-color: var(--color-fourth); /* coral red on hover */
   color: white;
 }
 
@@ -263,18 +275,18 @@ tbody tr:nth-child(odd) {
   justify-content: center;
 }
 
-/* Utility Color Tags */
+/* Utility Color Classes (for tags, highlights, etc.) */
 .first-color {
-  background: var(--brand-primary);
+  background: var(--color-first);
 }
 .second-color {
-  background: var(--brand-secondary);
+  background: var(--color-second);
 }
 .third-color {
-  background: var(--brand-accent);
+  background: var(--color-third);
 }
 .fourth-color {
-  background: var(--brand-error);
+  background: var(--color-fourth);
 }
 
 /* Responsive */
@@ -301,7 +313,21 @@ tbody tr:nth-child(odd) {
   }
   .swim-lane {
     width: 100%;
-    min-height: auto;
+    min-height: auto; 
     margin-bottom: 10px;
+  }
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: var(--color-light-bg);
   }
 }
