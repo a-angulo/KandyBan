@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { User } from '../models/user.js'; // 👈 .js required for ES module resolution
+import { User } from '../models/user.js';
 
 const router = Router();
 
@@ -40,29 +40,5 @@ export const login = async (req: Request, res: Response) => {
 };
 
 router.post('/login', login);
-
-// 🌱 TEMP: Seed test users with hashed passwords and log results
-router.get('/seed-multiple', async (_req: Request, res: Response) => {
-  try {
-    const hashedPassword = await bcrypt.hash('password', 10);
-
-    // Clear any duplicates
-    await User.destroy({ where: { username: ['JollyGuru', 'SunnyScribe', 'RadiantComet'] } });
-
-    const users = await User.bulkCreate(
-      [
-        { username: 'JollyGuru', password: hashedPassword },
-        { username: 'SunnyScribe', password: hashedPassword },
-        { username: 'RadiantComet', password: hashedPassword }
-      ]
-    );
-
-    console.log('🌱 Users seeded:', users.map((u) => u.toJSON()));
-    res.status(201).json({ message: '✅ Seeded users', users });
-  } catch (error) {
-    console.error('❌ Seeding error:', error);
-    res.status(500).json({ error: 'Failed to seed users' });
-  }
-});
 
 export default router;
