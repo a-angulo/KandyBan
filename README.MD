@@ -15,9 +15,11 @@
 3 - [Usage] (#usage)
 4 - [Testing] (#testing)
 5 - [Contributing] (#contributing)
+---
 
 ## Description: 
 **Kandyban** is a secure, full-stack Kanban board built with React, Node.js, Express, and PostgreSQL. This app introduces **JWT-based authentication** to protect access to tasks and allow session management, role-based access, and more. It supports agile development teams who need a reliable, secure, and user-friendly task management solution.
+---
 
 ## 🧠 Installation:
 
