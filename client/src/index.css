@@ -204,7 +204,7 @@ tbody tr:nth-child(odd) {
 
 /* Form Styling */
 .form {
-  max-width: 600px;
+  max-width: 60%;
   min-height: 50%;
   background-color: var(--color-second); /* light yellow */
   margin: auto;
@@ -325,7 +325,7 @@ tbody tr:nth-child(odd) {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #e16262;
   }
   button {
     background-color: var(--color-light-bg);
